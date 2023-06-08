@@ -1,7 +1,13 @@
 ## Local
+#.env
 .envrc
+
+# VSCode
 .vscode
 *.code-workspace
+
+# Codecov
+reports/
 
 ## Python
 # Byte-compiled / optimized / DLL files
