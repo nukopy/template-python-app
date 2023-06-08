@@ -24,9 +24,11 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-          cache: "poetry" # use "poetry.lock" for cache key  (ref: https://github.com/actions/setup-python/tree/v4/#caching-packages-dependencies)
+          cache: "pip"
       - name: Install dependencies
-        run: poetry install
+        run: |
+          poetry export --with dev --without-hashes -o requirements.txt
+          pip install -r requirements.txt
       - name: Format
         run: bash scripts/format.sh
 
@@ -43,9 +45,11 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-          cache: "poetry" # use "poetry.lock" for cache key (ref: https://github.com/actions/setup-python/tree/v4/#caching-packages-dependencies)
+          cache: "pip"
       - name: Install dependencies
-        run: poetry install
+        run: |
+          poetry export --with dev --without-hashes -o requirements.txt
+          pip install -r requirements.txt
       - name: Lint
         run: bash scripts/lint.sh
 
@@ -63,9 +67,11 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-          cache: "poetry" # use "poetry.lock" for cache key (ref: https://github.com/actions/setup-python/tree/v4/#caching-packages-dependencies)
+          cache: "pip"
       - name: Install dependencies
-        run: poetry install
+        run: |
+          poetry export --with dev --without-hashes -o requirements.txt
+          pip install -r requirements.txt
       - name: Test
         run: bash scripts/test.sh
       # ref for codecov: https://github.com/nukopy/tdd-python/blob/master/.github/workflows/test.yml#L64
