@@ -1,7 +1,8 @@
 [tool.poetry]
 name = "template-python-app"
 version = "0.1.0"
-description = ""
+description = "Template project for Python application"
+license = "MIT"
 authors = ["nukopy <nukopy@gmail.com>"]
 readme = "README.md"
 # packages = [{include = "template-python-app", from = "app"}]
